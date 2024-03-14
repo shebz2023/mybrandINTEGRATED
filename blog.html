@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+        }
+
+        .header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #262626;
+    height: 60px;
+    color: white;
+    top: 0;
+    width: 100%;
+    padding: 0 20px;
+    z-index: 1000; }
+.header h1{
+    font-size: 24px;
+    color: white;
+    margin-left:40px;
+    font-weight: bolder;
+}
+
+nav {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #262626;
+    height: 60px;
+    color: white;
+}
+
+nav a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    padding: 10px;
+}
+nav a span{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-bottom:2px solid #9cb071;
+    border-radius:15px;
+    transform:scale(0) translateY(50px);
+    transition: .5s;
+    opacity:0;
+
+}
+
+nav a:hover span{
+    color:#9cb071;
+    transform: scale(1) translateY(0);
+    opacity:1;
+}
+/* mobile nav bar */
+ .menu-icon {
+            display: none;
+        }
+        @media screen and (max-width: 768px) {
+            .header {
+                padding: 0;
+            }
+            .header h1 {
+                margin-left: 0;
+            }
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #1a1a1a;
+                text-align: center;
+                height: 700px;
+                
+            }
+            nav.active {
+                display: block;
+            }
+            nav a {
+                display: block;
+                padding: 10px;
+            }
+            .header nav a:hover {
+                transform: none;
+            }
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+                color: white;
+            }
+        }
+
+        .blog-container {
+            width: 80%;
+            margin: 80px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #262626;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+/*  search  */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    padding:auto;
+    box-shadow: 5px 10px 10px rgba(21, 20, 20, 0.1),0 0 20px rgba(36, 8, 77, 0.2);
+}
+.search-input {
+    width:100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+.search-button {
+    Width:20%;
+    padding: 10px 20px;
+    background-color:#9cb071;
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+.search-button:hover {
+    background-color: #707f50;
+}
+
+        .blog-header {
+            margin-bottom: 20px;
+        }
+
+        .blog-posts {
+            width:100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .blog-posts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .blog-post {
+            position: relative;
+            width: calc(33.33% - 20px); 
+            margin-bottom: 20px; 
+            overflow: hidden;
+            background-color: #1a1a1a;
+            color: #fff;
+            border-radius: 8px;
+            max-height: 300px;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .blog-title {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .blog-content {
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .read-more-link {
+            position:absolute;
+            top:50%;
+            font-size: 25px;
+            color:#404a2c;
+            text-decoration: none;
+            font-weight: bolder;
+            display: inline-block;
+        }
+
+        .read-more-link:hover {
+            text-decoration: underline;
+        }
+
+        .all-rights-reserved {
+            margin-top: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Media Query for Small Devices */
+        @media screen and (max-width: 768px) {
+    .blog-posts {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .blog-posts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .blog-post {
+        width: calc(95%); 
+        margin-bottom: 20px; 
+        overflow-x: auto;
+        background-color: #1a1a1a;
+        color: #fff;
+        border-radius: 8px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        
+        <h1>S...</h1>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav>       
+             <a href="index.html">Home<span></spans></a> 
+             <a href="index.html">About<span></span></a>    
+             <a href="index.html">Portfolio<span></span></a> 
+             <a href="blog.html">Blog<span></span></a>
+             <a href="index.html">Contact<span></span></a> 
+             <a href="LOGIN.HTML">Sign in<span></span></a> 
+        </nav>
+    </div>
+    <div class="blog-container">
+        <h2 class="blog-header">BLOGS</h2>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search BLOGS...">
+            <button class="search-button">Search</button>
+        </div>
+         <div class="blog-posts">
+            <!-- <div class="blog-post">
+                <img src="assets/planes.png" alt="PLANES" class="blog-image">
+                <h3 class="blog-title">PLANES</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="single.html" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/image 4.png" alt="food" class="blog-image">
+                <h3 class="blog-title">FOODS</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="single.html" class="read-more-link">Read More</a>
+            </div>     -->
+        </div>
+        <div class="all-rights-reserved">
+            All Rights Reserved 2024
+        </div>
+    </div>
+    <script>
+        // navbar
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            var menuIcon = document.querySelector('.menu-icon');
+            nav.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        }
+
+        // Function to fetch blogs from the API
+        function fetchBlogs() {
+            const url = 'http://localhost:7000/blogs';
+            return fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch blogs');
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error('Error fetching blogs:', error);
+                    return [];
+                });
+        }
+
+        // Function to create blog posts
+        function createBlogPost(blog) {
+            const blogPost = document.createElement('div');
+            blogPost.classList.add('blog-post');
+
+            const image = document.createElement('img');
+            image.src = blog.image;
+            image.alt = 'Blog Image';
+            image.classList.add('blog-image');
+
+            const title = document.createElement('h3');
+            title.textContent = blog.title;
+            title.classList.add('blog-title');
+
+            const content = document.createElement('p');
+            content.textContent = blog.content;
+            content.classList.add('blog-content');
+
+            const readMoreLink = document.createElement('a');
+            readMoreLink.href = 'single.html'; 
+            readMoreLink.textContent = 'Read More';
+            readMoreLink.classList.add('read-more-link');
+            readMoreLink.addEventListener('click', () => readmore(blog._id));
+            blogPost.appendChild(image);
+            blogPost.appendChild(title);
+            blogPost.appendChild(content);
+            blogPost.appendChild(readMoreLink);
+
+            return blogPost;
+        }
+
+        function readmore(id){
+            localStorage.setItem('idOfBlog',id)
+        }
+
+
+        // Function to display blogs on the page
+        function displayBlogs(blogs) {
+            const blogPostsContainer = document.querySelector('.blog-posts');
+            blogPostsContainer.innerHTML = ''; 
+
+            blogs.forEach(blog=> {
+                const blogPost = createBlogPost(blog);
+                blogPostsContainer.appendChild(blogPost);
+            });
+        }
+
+        // Fetch blogs from the API and display them
+        fetchBlogs()
+            .then(blogs => {
+
+                displayBlogs(blogs);
+            });
+
+        // Change the nav bar if signed in
+        window.onload = function () {
+            // Check if the user is logged in
+            var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
+            var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
+
+            // Get the nav element
+            var nav = document.querySelector('nav');
+
+            if (userIsLoggedIn || adminIsLoggedIn) {
+                // Create a new anchor element
+                var anchor = document.createElement('a');
+
+                // Remove the "Sign In" anchor
+                var signInAnchor = document.querySelector('nav a[href="LOGIN.HTML"]');
+                if (signInAnchor) {
+                    nav.removeChild(signInAnchor);
+                }
+
+                // Set the href attribute and text based on whether it is admin or user login
+                if (userIsLoggedIn) {
+                    anchor.href = 'userdashboard.html';
+                    anchor.innerText = 'ACCOUNT';
+                } else if (adminIsLoggedIn) {
+                    anchor.href = 'dashboard.html';
+                    anchor.innerText = 'Dashboard';
+                }
+                // Append the anchor element to the nav
+                nav.appendChild(anchor);
+            }
+        };
+    </script>
+</body>
+</html>

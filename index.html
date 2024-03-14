@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mybrand-shebelle</title>
+    <link rel="stylesheet" href="mybrand.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <section id="home">
+        <!-- landing page-->
+    <div class="header">
+        
+        <h1>S...</h1>
+        <div class="menu-icon" onclick="toggleMenu()"><i class='bx bx-menu'></i></div>
+        <nav>       
+             <a href="#home" onclick="hideMenu()">Home<span></spans></a> 
+             <a href="#about"onclick="hideMenu()">About<span></span></a>    
+             <a href="#portfolio"onclick="hideMenu()">Portfolio<span></span></a> 
+             <a href="#blog"onclick="hideMenu()">Blog<span></span></a>
+             <a href="#contact"onclick="hideMenu()">Contact<span></span></a> 
+             <a href="LOGIN.HTML"onclick="hideMenu()">Sign in<span></span></a> 
+        </nav>
+    </div>
+    <div class="wordsContainer">
+        <h1>I'm MUSABE <span>Shebelle kelvin</span></h1>
+        <p>this is my portfolio website with some cool articles to try in one place<br>ENJOY!!
+        </p>
+        <a href="assets/cv.png" download="cv">DOWNLOAD CV</a>
+        <form>
+            <input type="email" id="email" name="email" placeholder="Your email.." onkeyup="validateEmail()">
+            <span id="emailError"></span>
+            <button onclick="return validateForm()">Subscribe</button>
+        </form>
+        <div class="images">     
+            <img src="assets/shebz.png" class="me">
+        </div>
+    </div>
+</section>
+<section id="about" >
+    <div class="about">
+    <div class="heading">
+      <h1>About me</h1>
+    </div>
+    <div class="about-container">
+      <div class="about-content">
+        <h2>Crafting Digital Experiences with Passion and Precision </h2>
+        <p>
+            As a front-end teen developer, I blend creativity with technology to craft visually stunning and user-friendly websites and applications. With a passion for design and coding, I specialize in HTML, CSS, and JavaScript to bring concepts to life on the web. 
+        </p>
+        <!-- <button class="about-btn">Read more</button> -->
+        <a href="about2.html">Read more</a>
+      </div>
+      <div class="about-image">
+        <img src="assets/skills.jpg" alt="">
+      </div>
+    </div>
+</div>
+  </section>
+<section id="portfolio">
+    <!-- portfolio page-->
+    <div class="portfolio-container">
+        <h2 class="portfolio-header">My Portfolio</h2>
+        <div class="portfolio-images">
+            <div class="portfolio-item">
+                <img src="assets/project1.png" alt="Project 1">
+                <p>2023 started freecodecamp studies</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/project2.png" alt="Project 2">
+                <p>2024 joined andela technical program</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/coding.jpg" alt="Project 3">
+                <p>made a polydrome project </p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/roman-numerals.png" alt="Project 4">
+                <p>2023 made Roman Numeral Converter.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/cypher.jpg" alt="Project 5">
+                <p>2023 made a caesar cypher</p>
+        </div>
+        <div class="portfolio-item">
+                <img src="assets/kids-hula-hooping-outside.jpg" alt="Project 5">
+                <p>2023 joined urugerero program</p>
+        </div>
+        <div class="portfolio-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+        </div>
+        <div class="footer">
+            <img src="assets/hire-me-high-resolution-logo.png" alt="hire me">
+        </div>
+    </div>
+</section>
+<section id="blog">
+    <!-- blog page-->
+    <div class="blog-container">
+        <a href="blog.html">ALL BLOGS>></a>
+        <h2 class="blog-header">BLOGS</h2>
+        <div class="blog-posts">
+            <!-- <div class="blog-post">
+                <img src="assets/hacker.png" alt="Blog Image 1" class="blog-image">
+                <h3 class="blog-title">hacker</h3>
+                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                <a href="single.html" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/soccer.png" alt="Blog Image 2" class="blog-image">
+                <h3 class="blog-title">soccer</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="single.html" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/planes.png" alt="PLANES" class="blog-image">
+                <h3 class="blog-title">PLANES</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="single.html" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/image 4.png" alt="food" class="blog-image">
+                <h3 class="blog-title">FOODS</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="single.html" class="read-more-link">Read More</a>
+            </div>     -->
+        </div>
+        <div class="all-rights-reserved">
+            All Rights Reserved 2024
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <!-- contact page-->
+    <div class="contact-container">
+        <div class="contact-details">
+            <h3>CONTACT ME</h3>
+            <p>EMAIL:SHEBELLEKE@GMAIL.COM</p>
+            <p>PHONE:+250723289329</p>
+            <p>ADDRESS:kigali-kicukiro-kanombe-kabeza</p>
+        </div>
+        <form class="contact-form">
+            <input type="text" id="title" class="form-input" placeholder="title..." onkeyup="titleValidate()">
+            <span id="titleError"></span>
+            <input type="email" id="email2"class="form-input" placeholder="email..." onkeyup="email2validate()">
+            <span id="email2Error"></span>
+            <textarea id="message" class="form-textarea" placeholder="Question or Querries" onkeyup="msgvalidate()"></textarea>
+            <span id="msgError"></span>
+            <button onclick="return validate2Form()"class="form-button">Send</button>
+            <span id="submitError"></span>
+        </form>       
+    </div>
+    <footer>
+        <div class="icons">
+            <a href="" class="element"><img src="assets/fb.png" alt=""></a>
+            <a href="" class="element"><img src="assets/ig.png" alt=""></a>
+            <a href="" class="element"><img src="assets/LinkedIn.png" alt=""></a>
+            <a href="" class="element"><img src="assets/Pinterest.png" alt=""></a>
+            <a href="" class="element"><img src="assets/YouTube.png" alt=""></a>
+            <a href="" class="element"><img src="assets/TwitterX.png" alt=""></a>
+            <a href="" class="element"><img src="assets/Slack New.png" alt=""></a>
+        </div>
+     </footer>
+</section>
+<script>
+    // navigation bar 
+    function toggleMenu() {
+        var nav = document.querySelector('nav');
+        nav.classList.toggle('active');
+    }
+
+    function hideMenu() {
+        var nav = document.querySelector('nav');
+        nav.classList.remove('active');
+    }
+
+    // validating the email on subscribe
+    function validateEmail() {
+        var email = document.getElementById('email').value;
+        var emailError = document.getElementById('emailError'); 
+
+        if (email.length == 0) { 
+            emailError.innerHTML = "Email is required";
+            setTimeout(function(){ emailError.innerHTML = ''; }, 3000); 
+            return false;
+        }
+
+        if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            emailError.innerHTML = 'Email Invalid';
+            setTimeout(function(){ emailError.innerHTML = ''; }, 3000); 
+            return false;
+        }
+
+        emailError.innerHTML = "<i class='bx bxs-check-circle'></i>";
+        return true;
+    }
+
+    // subscribe email send function
+    function validateForm() {
+        if (validateEmail()) {
+            // Clear the input field after successful validation
+            document.getElementById('email').value = "";
+            return true;
+        } else {
+            return false;
+        }
+    }
+// fetch blogs from db
+
+function fetchBlogs(){
+    const url='http://localhost:7000/blogs';
+    return fetch(url)
+    .then(response => { 
+        if(!response.ok){
+         throw new Error('failed to fetch blogs') }
+         return response.json();
+        })
+        
+    .catch(error => {
+        console.error('error occurred:', error);
+        return [];
+    });
+}
+
+
+    // Function to create blog posts
+    function createBlogPost(blog) {
+        const blogPost = document.createElement('div');
+        blogPost.classList.add('blog-post');
+
+        const image = document.createElement('img');
+        image.src = blog.image;
+        image.alt = 'Blog Image';
+        image.classList.add('blog-image');
+
+        const title = document.createElement('h3');
+        title.textContent = blog.title;
+        title.classList.add('blog-title');
+
+        const content = document.createElement('p');
+        content.textContent = blog.content;
+        content.classList.add('blog-content');
+
+        // const readMoreLink = document.createElement('a');
+        // readMoreLink.href = 'single.html'; 
+        // readMoreLink.textContent = 'Read More';
+        // readMoreLink.classList.add('read-more-link');
+
+        blogPost.appendChild(image);
+        blogPost.appendChild(title);
+        blogPost.appendChild(content);
+        // blogPost.appendChild(readMoreLink);
+
+        return blogPost;
+    }
+
+      // Function to display blogs on the page
+      function displayBlogs(blogs) {
+            const blogPostsContainer = document.querySelector('.blog-posts');
+            blogPostsContainer.innerHTML = ''; 
+
+            blogs.forEach(blog=> {
+                const blogPost = createBlogPost(blog);
+                blogPostsContainer.appendChild(blogPost);
+            });
+        }
+
+        // Fetch blogs from the API and display them
+        fetchBlogs()
+            .then(blogs => {
+                console.log("here are the blogs", blogs)
+
+                displayBlogs(blogs);
+            });
+
+
+    // validating the contact form
+    var titleError =document.getElementById('titleError');
+    var email2Error = document.getElementById('email2Error'); 
+    var msgError =document.getElementById('msgError');
+    var submitError = document.getElementById('submitError');
+    // validating title
+    function titleValidate(){
+        var title=document.getElementById('title').value;
+        if(title.length==0){
+            titleError.innerHTML='title is required';
+            setTimeout(function(){ titleError.innerHTML = ''; }, 3000); 
+            return false;
+        }
+        if(!title.match(/^[A-Za-z\s'-]+$/)){
+            titleError.innerHTML ='write full title';
+            setTimeout(function(){ titleError.innerHTML = ''; }, 3000);
+            return false;
+        }
+        titleError.innerHTML="<i class='bx bxs-check-circle' ></i>"
+        return true;
+    }
+    // validating emailof contact
+    function email2validate(){
+        var email2 = document.getElementById('email2').value;
+
+        if (email2.length == 0) {
+            email2Error.innerHTML = "Email is required";
+            setTimeout(function(){ email2Error.innerHTML = ''; }, 3000);
+            return false;
+        }
+
+        if (!email2.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            email2Error.innerHTML = 'Email Invalid';
+            setTimeout(function(){ email2Error.innerHTML = ''; }, 3000);
+            return false;
+        }
+
+        email2Error.innerHTML = "<i class='bx bxs-check-circle'></i>";
+        return true;
+    }
+    //validating the message
+    function msgvalidate(){
+        var message=document.getElementById('message').value;
+        var required=30;
+        var left=required-message.length;
+        if(left>0){
+            msgError.innerHTML=left + 'more characters required';
+            setTimeout(function(){ msgError.innerHTML = ''; }, 3000);
+            return false;
+        }
+        msgError.innerHTML="<i class='bx bx-check-circle' ></i>";
+        return true;
+    }
+    function validate2Form(){
+         if(!titleValidate()|| !email2validate() || !msgvalidate()){
+           submitError.style.display='block';
+           submitError.innerHTML="pls Complete";
+           setTimeout(function(){submitError.style.display = 'none';}, 3000);
+            return false;
+            
+         } 
+         sendmessage();
+       }
+        function sendmessage() {
+        var link= 'http://localhost:7000/messages'
+        var title = document.getElementById('title').value;
+        var email = document.getElementById('email2').value;
+        var message = document.getElementById('message').value;
+
+        // Create an object to represent the message
+        var messageObject = {
+            title: title,
+            email: email,
+            message: message
+        };
+        fetch(link, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(messageObject)
+    })
+    .then(response => {
+        if (response.ok) {
+            submitError.innerHTML = "Message sent successfully";
+            submitError.style.color = "seagreen";
+            setTimeout(() => {
+                submitError.innerHTML = "";
+            }, 2000);
+            console.log(response, "success");
+        } else {
+            throw new Error('Network response was not ok.');
+        }
+    })
+    .catch(error => {
+        console.error('failed', error);
+        submitError.innerHTML = "message not sent";
+        setTimeout(() => {
+            submitError.innerHTML = "";
+        }, 2000);
+    });
+}
+    
+
+    //     // Retrieve existing messages from localStorage 
+    //     var existingMessages = localStorage.getItem('messages');
+
+    //     // Convert existing messages to an array or initialize an empty array
+    //     var messagesArray = JSON.parse(existingMessages) || [];
+
+    //     // Add the new message object to the array
+    //     messagesArray.push(messageObject);
+
+    //     // Convert the array back to a JSON string 
+    //     localStorage.setItem('messages', JSON.stringify(messagesArray));
+    //     // clear
+    //     document.getElementById('title').value = '';
+    //     document.getElementById('email2').value = '';
+    //     document.getElementById('message').value = '';
+        
+    // }
+
+
+    // if the user is logged in then change the signintext to dashboardtext
+
+
+    window.onload = function() {
+    // Check if the user is logged in
+    var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
+    var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
+
+    // Get the nav element
+    var nav = document.querySelector('nav');
+
+    if (userIsLoggedIn || adminIsLoggedIn) {
+        // Create a new anchor element
+        var anchor = document.createElement('a');
+        
+        // Remove the "Sign In" anchor
+        var signInAnchor = document.querySelector('nav a[href="LOGIN.HTML"]');
+        if (signInAnchor) {
+            nav.removeChild(signInAnchor);
+        }
+
+        // Set the href attribute and text based on whether it is admin or user login
+        if (userIsLoggedIn) {
+            anchor.href = 'userdashboard.html';
+            anchor.innerText = 'ACCOUNT';
+        } else if (adminIsLoggedIn) {
+            anchor.href = 'dashboard.html';
+            anchor.innerText = 'Dashboard';
+        }
+
+        // Append the anchor element to the nav
+        nav.appendChild(anchor);
+    }
+};
+
+    
+</script>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Shebelle</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #262626;
+    height: 60px;
+    color: white;
+    top: 0;
+    width: 100%;
+    padding: 0 20px;
+    z-index: 1000; }
+.header h1{
+    font-size: 24px;
+    color: white;
+    margin-left:40px;
+    font-weight: bolder;
+}
+
+nav {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #262626;
+    height: 60px;
+    color: white;
+}
+
+nav a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    padding: 10px;
+}
+nav a span{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-bottom:2px solid #9cb071;
+    border-radius:15px;
+    transform:scale(0) translateY(50px);
+    transition: .5s;
+    opacity:0;
+
+}
+
+nav a:hover span{
+    color:#9cb071;
+    transform: scale(1) translateY(0);
+    opacity:1;
+}
+/* mobile nav bar */
+ .menu-icon {
+            display: none;
+        }
+        @media screen and (max-width: 768px) {
+            .header {
+                padding: 0;
+            }
+            .header h1 {
+                margin-left: 0;
+            }
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #1a1a1a;
+                text-align: center;
+                height: 700px;
+                
+            }
+            nav.active {
+                display: block;
+            }
+            nav a {
+                display: block;
+                padding: 10px;
+            }
+            .header nav a:hover {
+                transform: none;
+            }
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+                color: white;
+            }
+        }
+        .firstcontainer {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 80px;
+        }
+
+        .img1, .img2 {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            max-width: 45vw; 
+            max-height: 40vh; 
+        }
+
+        img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+        }
+
+        .about-section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #262626;
+            color: #fff;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .about-section p {
+            margin-bottom: 15px;
+        }
+
+        .skills-container {
+            display: flex;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #262626;
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .skills-text {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .skills-text h2 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .skills-text ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills-text li {
+            margin-bottom: 5px;
+        }
+
+        .skills-image {
+            flex: 1;
+        }
+
+        .skills-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        
+        <h1>S...</h1>
+        <div class="menu-icon" onclick="toggleMenu()"><i class='bx bx-menu'></i></div>
+        <nav>       
+             <a href="index.html">Home<span></spans></a> 
+             <a href="index.html">About<span></span></a>    
+             <a href="index.html">Portfolio<span></span></a> 
+             <a href="blog.html">Blogs<span></span></a>
+             <a href="index.html">Contact<span></span></a> 
+             <a href="LOGIN.HTML">Sign in<span></span></a> 
+        </nav>
+    </div>
+    <div class="wrapper">
+        <div class="firstcontainer">
+            <div class="img1"><img src="assets/about.png" alt="about me pic"></div>
+            <div class="img2"><img src="assets/shebz.png" alt="me"></div>
+        </div>
+        <div class="about-section">
+            <p>
+                With a passion for coding and an eye for aesthetics, I am Shebelle, a teenage web designer on a mission to make the internet a visually stunning and user-friendly space.
+            </p>
+            <p>
+                Armed with a keen understanding of the latest design trends and coding languages, I craft websites that seamlessly blend functionality with captivating visuals.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+        <div class="skills-container">
+            <div class="skills-text">
+                <h2>My Skills</h2>
+                <ul>
+                    <li>Web Design</li>
+                    <li>Front-end Development</li>
+                    <li>UI/UX Design</li>
+                    <li>Responsive Design</li>
+                    <li>HTML (Hypertext Markup Language)</li>
+                    <li>CSS (Cascading Style Sheets)</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="skills-image"><img src="assets/skils-image.jpg" alt=""></div>
+        </div>
+    </div>
+    <script>
+       function toggleMenu() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+        // Change the nav bar if signed in
+    window.onload = function() {
+        // Check if the user is logged in
+        var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
+        var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
+
+        // Get the nav element
+        var nav = document.querySelector('nav');
+
+        if (userIsLoggedIn || adminIsLoggedIn) {
+            // Create a new anchor element
+            var anchor = document.createElement('a');
+            
+            // Remove the "Sign In" anchor
+            var signInAnchor = document.querySelector('nav a[href="LOGIN.HTML"]');
+            if (signInAnchor) {
+                nav.removeChild(signInAnchor);
+            }
+
+            // Set the href attribute and text based on whether it is admin or user login
+            if (userIsLoggedIn) {
+            anchor.href = 'userdashboard.html';
+            anchor.innerText = 'ACCOUNT';
+                } else if (adminIsLoggedIn) {
+                    anchor.href = 'dashboard.html';
+                    anchor.innerText = 'Dashboard';
+                }
+            // Append the anchor element to the nav
+            nav.appendChild(anchor);
+        }
+    };
+    </script>
+</body>
+</html>
