@@ -211,7 +211,7 @@
 // fetch blogs from db
 
 function fetchBlogs(){
-    const url='http://localhost:7000/blogs';
+    const url='https://mybrand-shebelle-api.onrender.com/blogs';
     return fetch(url)
     .then(response => { 
         if(!response.ok){
@@ -341,7 +341,7 @@ function fetchBlogs(){
          sendmessage();
        }
         function sendmessage() {
-        var link= 'http://localhost:7000/messages'
+        var link= 'https://mybrand-shebelle-api.onrender.com/messages'
         var title = document.getElementById('title').value;
         var email = document.getElementById('email2').value;
         var message = document.getElementById('message').value;

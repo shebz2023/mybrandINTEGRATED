@@ -393,7 +393,7 @@
 }
 
 function fetchBlogs() {
-    const url = 'http://localhost:7000/blogs';
+    const url = 'https://mybrand-shebelle-api.onrender.com/blogs';
     return fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -450,7 +450,7 @@ function createBlogPost(blog) {
 }
 
 function fetchAblog(blogId) {
-    const url = `http://localhost:7000/blogs/${blogId}`;
+    const url = `https://mybrand-shebelle-api.onrender.com/blogs/${blogId}`;
     return fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -523,7 +523,7 @@ function addComment() {
         comment: commentInput
     };
 
-    const url = `http://localhost:7000/blogs/${blogId}/comment`;
+    const url = `https://mybrand-shebelle-api.onrender.com/blogs/${blogId}/comment`;
     fetch(url, {
         method: 'POST',
         headers: {
@@ -550,7 +550,7 @@ function likeBlog() {
     var blogId = localStorage.getItem('idOfBlog');
     const token = localStorage.getItem('token');
     const email = localStorage.getItem('currentUserEmail');
-    const url = `http://localhost:7000/blogs/${blogId}/like`;
+    const url = `https://mybrand-shebelle-api.onrender.com/blogs/${blogId}/like`;
     fetch(url, {
         method: 'POST',
         headers: {
@@ -574,7 +574,7 @@ function likeBlog() {
 }
 
 function displayLikes(postId) {
-    const url = `http://localhost:7000/blogs/${postId}`;
+    const url = `https://mybrand-shebelle-api.onrender.com/blogs/${postId}`;
     fetch(url)
         .then(response => {
             if (!response.ok) {

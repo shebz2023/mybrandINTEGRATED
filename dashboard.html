@@ -281,7 +281,7 @@ footer a:hover{
          }  sendBlog();
         }
         function sendBlog(){
-            const link = 'http://localhost:7000/blogs'
+            const link = 'https://mybrand-shebelle-api.onrender.com/blogs'
             var token=localStorage.getItem('token');
             var title = document.getElementById('blogTitle').value.trim();
             var content = document.getElementById('blogContent').value.trim();
@@ -318,7 +318,7 @@ footer a:hover{
        
        
       function fetchBlogs() {
-            const url = 'http://localhost:7000/blogs';
+            const url = 'https://mybrand-shebelle-api.onrender.com/blogs';
             return fetch(url)
                 .then(response => {
                     if (!response.ok) {
@@ -394,7 +394,7 @@ function createBlogPost(blog) {
 function letsupdate(id) {
     // Get the blog data from the specified index
     var token=localStorage.getItem('token');
-    var address=`http://localhost:7000/blogs/${id}`;
+    var address=`https://mybrand-shebelle-api.onrender.com/blogs/${id}`;
     fetch(address)
     .then(response => response.json())
     .then(data=>{
@@ -428,7 +428,7 @@ function letsupdate(id) {
         method:'patch',
         headers:{'Authorization': `Bearer ${token}`,
                   'Content-type': 'application/json'  },
-        body: updated
+        body: JSON.stringify(updated)
     })
     .then(response => response.json())
     .then(data=>{
@@ -469,7 +469,7 @@ fetchBlogs()
 function deleteBlog(id) {
 
     var token=localStorage.getItem('token');
-    var address=`http://localhost:7000/blogs/${id}`;
+    var address=`https://mybrand-shebelle-api.onrender.com/blogs/${id}`;
 
     fetch(address,{
         method: 'delete',

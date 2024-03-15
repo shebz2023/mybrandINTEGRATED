@@ -119,7 +119,7 @@
 var token = localStorage.getItem('token');
 
 function fetchMessages() {
-    const url = 'http://localhost:7000/messages';
+    const url = 'https://mybrand-shebelle-api.onrender.com/messages';
     return fetch(url, {
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -165,7 +165,7 @@ const createMessageElement = message => {
 
 function deleteMessage(messageDiv, messageId) {
     messageDiv.remove();
-    const url = `http://localhost:7000/messages/${messageId}`;
+    const url = `https://mybrand-shebelle-api.onrender.com/messages/${messageId}`;
     return fetch(url, {
             method: 'delete',
             headers: {
