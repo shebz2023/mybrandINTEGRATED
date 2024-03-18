@@ -1,14 +1,15 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #1a1a1a;;
+    background-color: #1a1a1a;
+    font-family: 'Roboto', sans-serif;
 }
 .header {
     position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #262626;
+    background-color: rgba(38, 38, 38, 0.7);
     height: 60px;
     color: white;
     top: 0;
@@ -27,7 +28,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #262626;
+    background-color: rgba(38, 38, 38, 0.7);
     height: 60px;
     color: white;
 }
@@ -164,10 +165,11 @@ span{
   }
   .wordsContainer button{
     width: 20%;
-    padding: 10px;
+    padding: 8px 12px;
     border: none;
     border-radius: 5px;
-    background-color:#9cb071;
+    border:2px solid #9cb071;
+    background-color: #1a1a1a;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
@@ -250,7 +252,8 @@ span{
     color:white;
   }
   .about-content a{
-    background:#9cb071;
+    background: #1a1a1a;
+    border: 2px solid #9cb071;
     padding:10px 18px;
     text-decoration:none;
     font-weight:bold;
@@ -345,6 +348,21 @@ span{
       transform:translateY(0px);
      }
   }
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .scroll-animation {
+    animation: slideInFromLeft 1s ease-in-out;
+  }
+  
 /*css portfolio*/
 .portfolio-container {
     width: 80%;
@@ -357,8 +375,9 @@ span{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: calc(100% - 20px);
-    overflow: auto;  
+    gap: 20px; 
+    max-height: calc(100vh - 160px); 
+    overflow-y: auto; 
 }
 
 .portfolio-header {
@@ -432,15 +451,17 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 .blog-container a{
-    background:#9cb071;
+    background:#1a1a1a;
+    border: 2px solid #9cb071;
     padding:10px 18px;
     text-decoration:none;
     font-weight:bold;
     color:white;
     display:inline-block;
-    margin:30px 0;
+    margin:2px 0;
     border-radius:8px;
 
 }
@@ -452,7 +473,6 @@ footer {
     font-weight:bold;
     color:rgb(211, 203, 203);
     display:inline-block;
-    margin:30px 0;
     border-radius:9px;
 
 }
@@ -461,28 +481,38 @@ footer {
     margin-bottom: 20px;
 }
 
-
 .blog-posts {
-    width:100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 8px;
+}
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0.5;
+        transform: translateX(-5%);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+        transform: translateX(1%);
+    }
 }
 
-.blog-posts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-}
+
 
 .blog-post {
-    width: calc(33.33% - 20px); 
-    margin-bottom: 20px; 
     overflow: hidden;
     background-color: #1a1a1a;
     color: #fff;
     border-radius: 8px;
+    transition: transform 0.3s ease;
+    animation: slideInFromLeft 10s linear infinite;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
 }
 
 .blog-image {
@@ -504,10 +534,11 @@ footer {
 }
 
 .read-more-link {
-    color:#9cb071;
+    color: #9cb071;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
+    margin-bottom: 10px;
 }
 
 .read-more-link:hover {
@@ -519,6 +550,7 @@ footer {
     text-align: center;
     color: #fff;
 }
+
 /*mobile blog*/
 @media screen and (max-width:768px){
  .blog-posts {
@@ -640,7 +672,8 @@ footer {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #9cb071;
+    background-color: #1a1a1a;
+    border: 2px solid #728152;
     color: #fff;
     cursor: pointer;
     font-size: 16px;
@@ -648,7 +681,7 @@ footer {
 }
 .form-button:hover{
     transform: scale(1.01);
-    color:#262626
+    color:seagreen
 }
 
 .contact-details {
@@ -706,6 +739,7 @@ html{
 } */
 section{
     height: 100vh;
+    background: radial-gradient(circle, #000000, #1a1a1a, #222222, #333333, #444444);
     /* scroll-snap-align: start; */
 }
 #home, #contact, #about{

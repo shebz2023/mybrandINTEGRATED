@@ -6,10 +6,13 @@
     <title>mybrand-shebelle</title>
     <link rel="stylesheet" href="mybrand.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+
 
 </head>
 
 <body>
+    <div class="vertical-line"></div>
     <section id="home">
         <!-- landing page-->
     <div class="header">
@@ -26,14 +29,14 @@
         </nav>
     </div>
     <div class="wordsContainer">
-        <h1>I'm MUSABE <span>Shebelle kelvin</span></h1>
-        <p>this is my portfolio website with some cool articles to try in one place<br>ENJOY!!
+        <h1 class="scroll-animation">I'm MUSABE <span>Shebelle kelvin</span></h1>
+        <p class="scroll-animation">this is my portfolio website with some cool articles to try in one place<br>ENJOY!!
         </p>
         <a href="assets/cv.png" download="cv">DOWNLOAD CV</a>
         <form>
             <input type="email" id="email" name="email" placeholder="Your email.." onkeyup="validateEmail()">
             <span id="emailError"></span>
-            <button onclick="return validateForm()">Subscribe</button>
+            <button onclick="validateForm(event)">Subscribe</button>
         </form>
         <div class="images">     
             <img src="assets/shebz.png" class="me">
@@ -47,7 +50,7 @@
     </div>
     <div class="about-container">
       <div class="about-content">
-        <h2>Crafting Digital Experiences with Passion and Precision </h2>
+        <h2 class="scroll-animation">Crafting Digital Experiences with Passion and Precision </h2>
         <p>
             As a front-end teen developer, I blend creativity with technology to craft visually stunning and user-friendly websites and applications. With a passion for design and coding, I specialize in HTML, CSS, and JavaScript to bring concepts to life on the web. 
         </p>
@@ -149,7 +152,7 @@
             <span id="email2Error"></span>
             <textarea id="message" class="form-textarea" placeholder="Question or Querries" onkeyup="msgvalidate()"></textarea>
             <span id="msgError"></span>
-            <button onclick="return validate2Form()"class="form-button">Send</button>
+            <button onclick="return validate2Form(event)"class="form-button">Send</button>
             <span id="submitError"></span>
         </form>       
     </div>
@@ -199,15 +202,48 @@
     }
 
     // subscribe email send function
-    function validateForm() {
+    function validateForm(event) {
+        event.preventDefault();
         if (validateEmail()) {
+            const subEmail = document.getElementById('email').value;
             // Clear the input field after successful validation
             document.getElementById('email').value = "";
+            subscribe(subEmail);
             return true;
         } else {
             return false;
         }
     }
+
+// to subscribe
+
+function subscribe(email) {
+    var url = 'https://mybrand-shebelle-api.onrender.com/subs';
+    const sub = {
+        email: email
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sub)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to subscribe');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Subscription successful:', data);
+    })
+    .catch(error => {
+        console.error('Error subscribing:', error);
+    });
+}
+
 // fetch blogs from db
 
 function fetchBlogs(){
@@ -278,10 +314,15 @@ function fetchBlogs(){
 
 
     // validating the contact form
+
     var titleError =document.getElementById('titleError');
     var email2Error = document.getElementById('email2Error'); 
     var msgError =document.getElementById('msgError');
     var submitError = document.getElementById('submitError');
+    var titleElement=document.getElementById('title')
+    var email2Element= document.getElementById('email2')
+    var messageElement=document.getElementById('message')
+
     // validating title
     function titleValidate(){
         var title=document.getElementById('title').value;
@@ -330,7 +371,8 @@ function fetchBlogs(){
         msgError.innerHTML="<i class='bx bx-check-circle' ></i>";
         return true;
     }
-    function validate2Form(){
+    function validate2Form(event){
+        event.preventDefault();
          if(!titleValidate()|| !email2validate() || !msgvalidate()){
            submitError.style.display='block';
            submitError.innerHTML="pls Complete";
@@ -365,6 +407,10 @@ function fetchBlogs(){
             submitError.style.color = "seagreen";
             setTimeout(() => {
                 submitError.innerHTML = "";
+                titleElement.value = "";
+                messageElement.value = "";
+                email2Element.value = "";
+
             }, 2000);
             console.log(response, "success");
         } else {

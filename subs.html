@@ -31,12 +31,6 @@
       color:red;
       border:2px solid red;
     } 
-    .profile-pic {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 15px;
-    }
 
     .status {
       position:relative;
@@ -85,7 +79,7 @@
   <a href="dashboard.html" class="back-button">DASHBOARD</a>
   <a href="status.html" class="link-button">Users</a>
   <a href="messages.html" class="link-button">Messages</a>
-  <a href="subs.html" class="link-button">Subscribers</a>
+  <a href="messages.html" class="link-button">Subscribers</a>
   <a href="index.html" class="link-button">HOME</a>
 
   <div id="statusList"></div>
@@ -94,7 +88,7 @@
 
 <script>
 const token = localStorage.getItem('token');
-const url = 'https://mybrand-shebelle-api.onrender.com/users';
+const url = 'https://mybrand-shebelle-api.onrender.com/subs';
 
 async function fetchUsers() {
     try {
@@ -104,69 +98,66 @@ async function fetchUsers() {
             }
         });
         if (!response.ok) {
-            throw new Error('Failed to fetch users');
+            throw new Error('Failed to fetch subs');
         }
-        const users = await response.json();
-        return users;
+        const subs = await response.json();
+        return subs;
     } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching subs:', error);
         return [];
     }
 }
 
-function createStatusContainer(user) {
+function createStatusContainer(sub) {
     const statusContainer = document.createElement('div');
     statusContainer.classList.add('statusContainer');
 
     const status = document.createElement('div');
     status.classList.add('status');
-
-    const span = document.createElement('span');
-    span.textContent = user.username;
+    status.textContent = sub.email;
 
     const deleteIcon = document.createElement('i');
     deleteIcon.classList.add('fa-solid', 'fa-trash');
-    deleteIcon.addEventListener('click', () => deleteFn(statusContainer, user.email));
+    deleteIcon.addEventListener('click', () => deleteFn(statusContainer, sub._id));
 
-    status.appendChild(span);
     status.appendChild(deleteIcon);
     statusContainer.appendChild(status);
 
     return statusContainer;
 }
 
-async function deleteFn(statusContainer, emailUser) {
+async function deleteFn(statusContainer, id) {
     try {
-        const response = await fetch(`${url}/${emailUser}`, {
+        const response = await fetch(`${url}/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         });
         if (!response.ok) {
-            throw new Error('Failed to delete user');
+            throw new Error('Failed to delete sub');
         }
         statusContainer.remove();
     } catch (error) {
-        console.error('Error deleting user:', error);
+        console.error('Error deleting sub:', error);
     }
 }
 
 async function displayUsers() {
     try {
-        const users = await fetchUsers();
+        const subs = await fetchUsers();
         const statusList = document.getElementById('statusList');
-        statusList.innerHTML = ''; // Clear previous content
-        users.forEach((user) => {
-            const statusContainer = createStatusContainer(user);
+        statusList.innerHTML = ''; 
+        subs.forEach((sub) => {
+            const statusContainer = createStatusContainer(sub);
             statusList.appendChild(statusContainer);
         });
     } catch (error) {
-        console.error('Error displaying users:', error);
+        console.error('Error displaying subs:', error);
     }
 }
 
-// Display users on page load
+// Display subs on page load
 window.onload = async function () {
     try {
         // Check if the user is logged in
