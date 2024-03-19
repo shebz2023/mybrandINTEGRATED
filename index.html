@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="mybrand.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
 
 
 </head>
@@ -29,8 +31,8 @@
         </nav>
     </div>
     <div class="wordsContainer">
-        <h1 class="scroll-animation">I'm MUSABE <span>Shebelle kelvin</span></h1>
-        <p class="scroll-animation">this is my portfolio website with some cool articles to try in one place<br>ENJOY!!
+        <h1 class="myName">I'm MUSABE <span>Shebelle kelvin</span></h1>
+        <p class="myDescription">this is my portfolio website with some cool articles to try in one place<br>ENJOY!!
         </p>
         <a href="assets/cv.png" download="cv">DOWNLOAD CV</a>
         <form>
@@ -46,12 +48,12 @@
 <section id="about" >
     <div class="about">
     <div class="heading">
-      <h1>About me</h1>
+      <h1 class="aboutMe">About me</h1>
     </div>
     <div class="about-container">
       <div class="about-content">
-        <h2 class="scroll-animation">Crafting Digital Experiences with Passion and Precision </h2>
-        <p>
+        <h2 class="myDescription">Crafting Digital Experiences with Passion and Precision </h2>
+        <p class="my2Description">
             As a front-end teen developer, I blend creativity with technology to craft visually stunning and user-friendly websites and applications. With a passion for design and coding, I specialize in HTML, CSS, and JavaScript to bring concepts to life on the web. 
         </p>
         <!-- <button class="about-btn">Read more</button> -->
@@ -103,7 +105,7 @@
 <section id="blog">
     <!-- blog page-->
     <div class="blog-container">
-        <a href="blog.html">ALL BLOGS>></a>
+        <a href="blog.html">ALL BLOGS</a>
         <h2 class="blog-header">BLOGS</h2>
         <div class="blog-posts">
             <!-- <div class="blog-post">
@@ -132,18 +134,19 @@
             </div>     -->
         </div>
         <div class="all-rights-reserved">
-            All Rights Reserved 2024
+            <span class="white-text">Explore</span> more fascinating<span class="white-text"> articles</span>  and insights to dive deeper <span class="seagreen-text">into my journey and expertise</span>
         </div>
+        
     </div>
 </section>
 <section id="contact">
     <!-- contact page-->
     <div class="contact-container">
         <div class="contact-details">
-            <h3>CONTACT ME</h3>
-            <p>EMAIL:SHEBELLEKE@GMAIL.COM</p>
-            <p>PHONE:+250723289329</p>
-            <p>ADDRESS:kigali-kicukiro-kanombe-kabeza</p>
+            <h3 class="contacts">CONTACT ME</h3>
+            <p class="contacts">EMAIL:SHEBELLEKE@GMAIL.COM</p>
+            <p class="contacts">PHONE:+250723289329</p>
+            <p class="contacts">ADDRESS:kigali-kicukiro-kanombe-kabeza</p>
         </div>
         <form class="contact-form">
             <input type="text" id="title" class="form-input" placeholder="title..." onkeyup="titleValidate()">
@@ -158,17 +161,49 @@
     </div>
     <footer>
         <div class="icons">
-            <a href="" class="element"><img src="assets/fb.png" alt=""></a>
-            <a href="" class="element"><img src="assets/ig.png" alt=""></a>
-            <a href="" class="element"><img src="assets/LinkedIn.png" alt=""></a>
-            <a href="" class="element"><img src="assets/Pinterest.png" alt=""></a>
-            <a href="" class="element"><img src="assets/YouTube.png" alt=""></a>
-            <a href="" class="element"><img src="assets/TwitterX.png" alt=""></a>
-            <a href="" class="element"><img src="assets/Slack New.png" alt=""></a>
+            <a href="https://www.facebook.com/" class="element"><img src="assets/fb.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/" class="element"><img src="assets/ig.png" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/" class="element"><img src="assets/LinkedIn.png" alt="LinkedIn"></a>
+            <a href="https://www.pinterest.com/" class="element"><img src="assets/Pinterest.png" alt="Pinterest"></a>
+            <a href="https://www.youtube.com/" class="element"><img src="assets/YouTube.png" alt="YouTube"></a>
+            <a href="https://twitter.com/" class="element"><img src="assets/TwitterX.png" alt="Twitter"></a>
+            <a href="https://slack.com/" class="element"><img src="assets/Slack New.png" alt="Slack"></a>
         </div>
-     </footer>
+    </footer>
+    
 </section>
 <script>
+    // scrolling
+    document.addEventListener('DOMContentLoaded', function () {
+    const options = {
+        reset: true,
+        distance: '60px',
+        duration: 2500,
+        delay: 400,
+    };
+    const sr = ScrollReveal(options);
+    sr.reveal('.myName', { origin: 'left', duration: 1000 });
+    sr.reveal('.myDescription', { origin: 'bottom', distance: '20px', duration: 1000 });
+   
+    //    about
+    sr.reveal('.aboutMe', { origin: 'top', distance: '20px', duration: 900 });
+    sr.reveal('.about-image', { origin: 'right', distance: '20px', duration: 900 });
+    sr.reveal('.portfolio-item', { origin: 'bottom',interval: 200 });
+    sr.reveal('.portfolio-description', { origin: 'right', distance: '20px', duration: 900  });
+    sr.reveal('.footer', { origin: 'left', distance: '20px', duration: 900  });
+    sr.reveal('.blog-header', {  origin: 'right', distance: '20px', duration: 900  });
+    sr.reveal('.seagreen-text', {  origin: 'right', distance: '20px', duration: 1200  });
+    sr.reveal('.white-text', {  origin: 'left', distance: '50px', duration: 300  });
+    // contact
+    
+    sr.reveal('.contacts', { origin: 'bottom', distance: '20px', duration: 1000 });
+
+    //  icons
+    sr.reveal('.element', { origin: 'bottom', distance: '20px', duration: 1000, interval: 200 });
+
+});
+
+
     // navigation bar 
     function toggleMenu() {
         var nav = document.querySelector('nav');
